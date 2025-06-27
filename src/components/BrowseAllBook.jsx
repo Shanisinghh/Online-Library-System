@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import dummyBooks from "../dummybooks/dummyBooks";
-import { useEffect } from "react";
 import { categories } from "../dummybooks/dummyBooks";
-import { useDispatch } from "react-redux";
 import Book from "./Book";
 
 function BrowseAllBook() {

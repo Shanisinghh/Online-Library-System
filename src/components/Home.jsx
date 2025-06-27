@@ -1,11 +1,12 @@
 import React from "react";
 import Navbar from "./Navbar";
-import { Outlet } from "react-router-dom";
 import { categories } from "../dummybooks/dummyBooks";
-import dummybooks from "../dummybooks/dummyBooks";
 import Book from "./Book";
+import { useSelector } from "react-redux";
+
 
 function Home() {
+   const dummyBooks = useSelector((state) => state.books.books);
   return (
     <>
       <div className="mt-17">
@@ -16,7 +17,7 @@ function Home() {
 
           <div className=" mt-10">
             <h1 className="md:text-2xl sm:text-xl px-3 font-bold my-3">Our All Categorys</h1>
-            <div className="scroll flex sm:overflow-x-scroll justify-start items-center sm:gap-4 md:gap-14 myborder py-2 sm:px-3 md:px-5">
+            <div className="scroll flex  justify-start items-center sm:gap-4 md:gap-14 myborder py-2 sm:px-3 md:px-5">
               {categories.map((category, index) => (
                 <div key={index} className="text-center ">
                   <h2 className="text-md font-semibold  text-gray-700">
@@ -31,7 +32,7 @@ function Home() {
           <h2 className="md:text-2xl sm:text-xl px-3 font-bold my-3">Some Popular Books</h2>
           <div className="flex flex-wrap gap-3.5 justify-center pb-3">
             
-            {dummybooks.map((book)=>(
+            {dummyBooks.map((book)=>(
               <Book key={book.id} book={book} />
             ))}
              
